@@ -1,0 +1,60 @@
+@use "../base" as *;
+@use "../abstracts" as *;
+
+
+@mixin burger-layer {
+  content: '';
+  position: absolute;
+  height: 3px;
+  background: set-text-color($primary-color);
+  @include transition-ease;
+
+}
+
+.menu-btn {
+  position: absolute;
+  z-index: 1;
+  right: 1rem;
+  top: 1rem;
+  height: 20px;
+  width: 28px;
+  cursor: pointer;
+  @include transition-ease;
+
+
+  &__burger {
+    right: 0;
+    top: 0;
+    width: 28px;
+    @include burger-layer;
+
+    &::before {
+      top: -8px;
+      width: 28px;
+      @include burger-layer;
+    }
+
+    &::after {
+      top: 8px;
+      width: 20px;
+      @include burger-layer;
+    }
+
+    &.open {
+      rotate: 180deg;
+      background: transparent;
+
+      &::before {
+          transform: rotate(45deg) translate(5px, 8px);
+        }
+      &::after {
+        width: 28px;
+        transform: rotate(-45deg) translate(3px, -7px);
+    }
+
+  }
+
+  }
+
+
+}

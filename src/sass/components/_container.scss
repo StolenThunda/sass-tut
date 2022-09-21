@@ -1,0 +1,8 @@
+@use "../base" as *;
+
+.container {
+  padding: 5px;
+  border: 5px solid limegreen;
+  width: min(100% - 2rem, $bodyWidth);
+  margin-inline: auto;
+}
